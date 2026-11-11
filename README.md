@@ -2,8 +2,9 @@
 
 ダミーデータをシートへ取り込み、手作業のコピーを終わらせます。
 
-Googleスプレッドシート上の実操作GIFは、デモ用アカウントで録画できしだい、このREADMEの先頭に追加します。顧客の本番環境の画面ではありません。
+![入力シートの4行を取込へ移し、重複はスキップする実操作](docs/screenshots/excel-import-demo.gif)
 
+上のGIFは、デモ用アカウントでの実操作です。顧客の本番環境の画面ではありません。処理前後の比較は [docs/screenshots/excel-import-before-after.png](docs/screenshots/excel-import-before-after.png) にあります。
 
 手元のダミー Excel / CSV と同じ列を、Google スプレッドシートの「取込」へ追記する、Google Apps Script（GAS）のサンプルです。日付と商品名が同じ行は重複としてスキップし、件数を「実行メモ」に残します。
 
@@ -11,7 +12,7 @@ Googleスプレッドシート上の実操作GIFは、デモ用アカウント�
 
 出品「Excelの転記をGASに移します」の完成イメージです。新しい Google アカウントでも、15〜20分程度で同じ動きを再現できます。
 
-この環境では Google アカウントにログインして実行確認をしていません。初回は必ず、自分のシートで `importFromInputSheet` を実行し、追加件数と重複スキップを確認してください。メール通知は任意です。
+デモ用アカウントで、2026-11-11 にこのリポジトリの `src/Code.gs` をそのまま実行して確認しています。1回目の取り込みは追加3・スキップ1・エラー0、2回目は追加0・スキップ4・エラー0でした。初回は必ず、自分のシートで `importFromInputSheet` を実行し、追加件数と重複スキップを確認してください。メール通知は任意です。
 
 ## できること
 
@@ -80,7 +81,9 @@ clasp を使う場合は、末尾の「clasp で使う場合」を参照して�
 
 もう一度同じ操作をすると、追加0・スキップ4（または既存3＋入力4の重複）になり、同じ行は二重に増えません。
 
-処理前後の説明図（実際の Google 画面ではありません）:
+処理前後の実画面は、上の GIF と [docs/screenshots/excel-import-before-after.png](docs/screenshots/excel-import-before-after.png) を見てください。
+
+説明用に組んだ図（実際の Google 画面ではありません）:
 
 - [docs/screenshots/input-before.png](docs/screenshots/input-before.png) … 取り込み前の「入力」
 - [docs/screenshots/dest-after.png](docs/screenshots/dest-after.png) … 取り込み後の「取込」（重複は含まれない）
